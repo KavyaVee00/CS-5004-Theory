@@ -143,8 +143,15 @@ public class Robot {
         this.size = size;
     }
 }
+```
 
-```c
+Now let's move on to how to actually create the object. 
+
+
+## Chapter 3:  Getting Deeper with Class Objects 
+
+
+
 
 
 
