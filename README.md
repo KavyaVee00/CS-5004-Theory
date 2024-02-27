@@ -145,11 +145,22 @@ public class Robot {
 }
 ```
 
-Now let's move on to how to actually create the object. 
+
+So all of this is part of the Class which is still just a blueprint, so it doesn’t really exist yet. When we create a class, we tell the language what this new data type looks like and what it does, but all we’re doing at this point is DESCRIBING what the data type looks like, we’re not actually creating a robot that we can work with.
+
+
+Now let's move on to how to actually create the Robot, the object. 
 
 
 ## Chapter 3:  Getting Deeper with Class Objects 
 
+To create an object of Robot, specify the class name , followed by the object name, which can be R1, and use the keyword new:
+```c
+Robot myRobot = new Robot("Robbie", "R2-D2", 3);
+```
+
+So "Robot" is the class name 
+myRobot is the object name 
 
 
 
