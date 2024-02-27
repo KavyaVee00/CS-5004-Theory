@@ -43,7 +43,7 @@ Now in order for the robot to actually recieve a size, model, or name, we would 
         this.size = size;
     }
 ```
-In the constructor, when you use "this.name = name;", it means you're assigning the value of the "name" parameter to the "name" variable of the current robot object. Same goes for "this.model = model;". You're assigning the value of the "model" parameter to the "model" variable of the robot object. So if we're thinking about it in the sense of boxes, when we use "this" in the constructor, it's like the robot talking to itself, saying "Hey, I'm the robot we're talking about, so put my name in my name box, my model in my model box, and my size in my size box." It'w what essentially gives the each box what is supposed to go inside them.
+In the constructor, when you use "this.name = name;", it means you're assigning the value of the "name" parameter to the "name" variable of the current robot object. Same goes for "this.model = model;". You're assigning the value of the "model" parameter to the "model" variable of the robot object. So if we're thinking about it in the sense of boxes, when we use "this" in the constructor, it's like the robot talking to itself, saying "Hey, I'm the robot we're talking about, so put my name in my name box, my model in my model box, and my size in my size box." It'w what essentially directing the data into it's corrosponding box. 
 
 But these aren’t enough to create a WHOLE robot. It needs to be able to do something or have a functionality.  Maybe we might want it to walk or lift a box. These actions are known as methods. 
 
@@ -61,7 +61,7 @@ But these aren’t enough to create a WHOLE robot. It needs to be able to do som
 
 These are like commands that we can give to the robot to make them do things. Just like how you may press buttons to make a toy robot move, in Java, you use methods to make our object, the robot, to move. 
 
-So once we bring our robot to life with a constructor, we might want to actually know what's it name is or what it's size is. That's where Getter's come in. Getter's allow us to peek inside the box and see what's inside there. Here are some examples of getters. 
+So once we bring our robot to life with a constructor, we might want to actually know what's it name is or what it's size is. That's where Getter's come in. Getter's allow us to peek inside the box and see what's inside there. It's like asking the robot to tell us what it's name or model is. Here are some examples of getters. 
 
 ```c
     public String getName() {
