@@ -31,7 +31,7 @@ public class Robot {
 ```
 For this example, the attributes could be like its size (number), or model (string), or name(string). These attributes only define what makes up a Robot and what we would want it to have. I like to think of these as empty boxes with labels of what is supposed to go inside of them.
 
-But in order for the robot to actually recieve a size, model, or name, we would have to create a constructor. A constructor is what actually brings the robot to life by assigning it a name, model, size. It what labels the empty boxes with what they're supposed to each recieve. But how exactly does it do that? This is where the "this" pointer comes in to play. 
+But in order for the robot to actually recieve a size, model, or name, we would have to create a constructor. A constructor is what actually brings the robot to life by assigning it a name, model, size. But how exactly does it do that? This is where the "this" pointer comes in to play. 
 
 ```c
 // Constructor to initialize the attributes
