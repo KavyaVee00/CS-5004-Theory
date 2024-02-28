@@ -314,14 +314,14 @@ When I approach class design, I think of it like building with lego blocks.  I s
 This is an example of efficient class:
 
 ```c
-// Define the Robot class
+// T Robot class
 public class Robot {
     // Attributes or variables
     private String name;
     private String model;
     private int size;
     private static String manufacturer = "Stark Industries"; // Static variable for the manufacturer
-    // Constructor to initialize the attributes
+    // Constructor 
     public Robot(String name, String model, int size) {
         this.name = name;
         this.model = model;
@@ -411,8 +411,48 @@ Now let’s dive into annotations.
 
 Annotations are what tells the program what we want to do with the code. 
 
-The “@Before" annotation 
-The "@Test" annotation wants that the method should be executed as a test method.
+The “@Before" annotation is used to run the code before every test. We basically set up the variables or methods that we want to test. If our tests need certain objects to be created before we run the test, we can use this annotation to set it up. 
+
+Here is an example: 
+
+```c
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class RobotTest {
+    private Robot myRobot;
+
+    @Before
+    public void setUp() {
+     // This will run before each test
+        myRobot = new Robot("Robbie", "R2-D2", 3);
+    }
+
+    @Test
+    public void testWalk() {
+        // This test checks if the robot can walk
+        assertEquals("Robbie is walking.", myRobot.walk());
+    }
+
+    @Test
+    public void testLiftBox() {
+        // This test checks if the robot can lift a box
+        assertEquals("Robbie is lifting a box.", myRobot.liftBox());
+    }
+}
+
+```
+
+So as you can see, we are setting up by creating an object that the tests will be using. 
+
+The "@Test" annotation wants the code written following it executed as a test. This is pretty self explanatory. 
+
+Another annotation is "@After". So just like how the @Before annotation prepares us for the test before, the @After annotation is when we clean up or or release any resources that we were using before the test, so essentially wiping the slate clean for a fresh start for the next test. 
+
+
+
+
                          
 
 
