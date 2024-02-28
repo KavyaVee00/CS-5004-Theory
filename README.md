@@ -247,9 +247,9 @@ Jeremy is walking.
 Jeremy is lifting a box.
 ```
 
-Now let's talk about dynamic and static variables. In the Robot class, the variables name, model, and size are all dynamic variables. Why? Because they can vary from one robot instance to another. For example, one robot "Robbie" has the name "Robbie", the model "Ultron", and the size 3, while another robot "Jeremy" could have different values for these variables. 
+Now let's talk about dynamic and static variables. In the Robot class, the variables name, model, and size are all dynamic variables. Why? Because they can vary from one robot instance/object to another. For example, one robot "Robbie" has the name "Robbie", the model "Ultron", and the size 3, while another robot "Jeremy" could have different values for these variables, like name "Jeremey, model "Transformer, and size 2.  
 
-Another dynamic variables would be the methods we created. The methods walk() and liftBox() are dynamic functions because they perform actions specific to each robot object. When we call myRobot.walk(), it prints out "Robbie is walking.", indicating that "Robbie" is the one walking. If we had another robot named "Jeremy", calling jeremyRobot.walk() would print "Jeremy is walking.". 
+Another dynamic variables would be the methods we created. The methods walk() and liftBox() are dynamic functions because they perform actions specific to each robot object. When we call myRobot.walk(), it prints out "Robbie is walking.", indicating that "Robbie" is the one walking. If we had another robot named "Jeremy", calling myRobot2.walk() would print "Jeremy is walking.". 
 
 So essentially, dynamic variables mean that they are variables that can constantly be changed. They are variables that are unique to each object. 
 
@@ -281,7 +281,7 @@ Static variables, on the other hand, are shared among all objects of the class a
     }
 }
 ```
-So as you can see, I've added a manufactor variable. So one thing that I remember I was intially confused about when I was learning about this is why do the other methods not have getters or setter, but the static one does? I realized this is because the static variable is an actual variable that is instansized in the class, like name or size, and so it need's to have a getter or setter. The methods to lift a box or walk don't need getters or setters because they are not actual variables instanized in the class.  
+So as you can see, I've added a manufactor variable. So one thing that I remember I was intially confused about when I was learning about this is why do the other methods not have getters or setter, but the static one does? I realized this is because the static variable is an actual variable that is instansized in the class, like name or size, and so it needs to have a getter or setter. The methods to lift a box or walk don't need getters or setters because they are not actual variables instanized in the class.  
 
 Now, manufacturer is a static variable that stores the name of the manufacturer of all robot objects. We can access it using Robot.getManufacturer() and modify it using Robot.setManufacturer(). This variable is shared among all objects of the Robot class. Note how we had to use the word "static" when setting up our methods. 
 
@@ -294,10 +294,23 @@ public class Main {
         Robot myRobot1 = new Robot("Robbie", "Ultron", 3);
         Robot myRobot2 = new Robot("Jeremy", "Transformer", 2);
 
-        // Display the initial manufacturer
-        System.out.println("The Manufacturer: " + Robot.getManufacturer());
+        // Display the manufacturer
+        System.out.println("The Manufacturer for " + myRobot1.getName "is" + Robot.getManufacturer());
+        System.out.println(The Manufacturer for " + myRobot2.getName "is" + Robot.getManufacturer());
 ```
         
+Note how I'm calling to get the corrosponding name for each robot but when I call the manufactoer, it's not a specific object because it is a variable that is shared among all the objects of the Robot class. 
+
+This would be the output: 
+
+```c
+The Manufacturer for Robbie is Stark Industries
+The Manufacturer for Jeremy is Stark Industries
+```
+
+When I approach class design, I start off by thinking of the basics, such as the variables and methods. I then think of the getters and setters that's how these variables are accessed and controlled
+
+
 
 
 
