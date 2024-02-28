@@ -395,11 +395,14 @@ myRobot2.liftBox();
 
 ## All about Unit Testing 
 
-Test driven development is the practice in which we write our tests before we develop the actual code. In my eyes, it’s like laying the framework of what we expect we want the code to do by writing tests that the code would need to pass. You can write the tests 
+Test driven development is the practice in which we write our tests before we develop the actual code. In my eyes, it’s like laying the framework of what we expect we want the code to do by writing tests that would write the code accordingly to pass.
 
-Test driven development is key in making sure that our code executes what we want to. It gives us direct information about what part of the code we need to improve on, increasing our productivity. It allows us to hone in on what exact part of the code needs fixing, so it’s more efficient since we won’t waste time figuring out what part of the code is wrong or make us rework the entire code. 
+Test driven development is key in making sure that our code executes what we want to. It gives us direct information about what part of the code we need to improve on, increasing our productivity. It allows us to hone in on what exact part of the code needs fixing, so it’s more efficient since we won’t waste time figuring out what part of the code is wrong or rework the entire code. 
 
 Let’s dive into how to implement Test Driven Development using Junit by using the Robot Class we created before. 
+- We would first disregard the class that we just created, or pretened that we didn't, and build tests that adhere to the code that we want to implement.
+- Then we would write what I consider like the first draft of the code, simple and straight to the point and passes the tests with no errors
+- Once I get the code running and passing the tests, I can then go back in and increase the functionality, 
 
 Let’s start with common naming conventions.
 
@@ -450,14 +453,97 @@ The "@Test" annotation wants the code written following it executed as a test. T
 
 Another annotation is "@After". So just like how the @Before annotation prepares us for the test before, the @After annotation is when we clean up or or release any resources that we were using before the test, so essentially wiping the slate clean for a fresh start for the next test. 
 
+```c
+@After
+    public void tearDown() {
+        // Release any resources that were used during testing
+        myResource.close();
+    }
+```
+So as you can see in this example, it ensures that the resources that are used are all cleaned up. 
+
+Another equally important one is the assertEquals annotaton
+
+assertEquals: This is an assertion method provided by JUnit. It checks if the actual result of a test matches the expected result. If the actual result matches the expected result, the test passes; otherwise, it fails
+
+Here's some tests that I've created: 
+```c
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
+
+public class RobotTest {
+    
+    private Robot robot;
+
+    @Before
+    public void setUp() {
+        robot = new Robot("Robbie", "Ultron", 3);
+    }
+
+    @Test
+    public void testGetName() {
+        // Testing the getName method
+        assertEquals("Robbie", robot.getName());
+    }
+
+    @Test
+    public void testGetModel() {
+        // Testing the getModel method
+        assertEquals("Ultron", robot.getModel());
+    }
+
+    @Test
+    public void testGetSize() {
+        // Test the getSize method
+        assertEquals(3, robot.getSize());
+    }
+
+    @Test
+    public void testSetName() {
+        // Test the setName method
+        robot.setName("Jeremy");
+        assertEquals("Jeremy", robot.getName());
+    }
+
+    @Test
+    public void testSetModel() {
+        // Test the setModel method
+        robot.setModel("Transformer");
+        assertEquals("Transformer", robot.getModel());
+    }
+
+    @Test
+    public void testSetSize() {
+        // Test the setSize method
+        robot.setSize(5);
+        assertEquals(5, robot.getSize());
+    }
+
+    @Test
+    public void testWalk() {
+        // Testing the walk method
+        assertEquals("Robbie is walking.", robot.walk());
+    }
+
+    @Test
+    public void testLiftBox() {
+        // Testing the liftBox method
+        assertEquals("Robbie is lifting a box.", robot.liftBox());
+    }
+}
+```
 
 
+Now let's dive into comparing the driver testing to the unit testing! 
 
-                         
+I like to think of Drivers as the big picture while Unit tests are like a magnifying glass. A driver makes sure that the whole code works as a whole while Unit tests look at each specific part of the code seperately to ensure those parts are working. With driver testing we get feedback on how well the code performs overall. Unit Testing gives much more specific feedback, like what part is not working. 
 
+Driver testing would be like assembling the entire robot and making sure it can walk, talk, and do everything it's supposed to do. We want to make sure if the whole robot works as expected. 
 
+Unit testing is like checking each part individually to see if it works well on its own. That's when we think about testing each part of the robot separately, like making sure the arms can move correctly, the legs can walk properly, etc. 
 
-
+We use driver testing to ensure that our entire application works correctly from end to end, just like making sure our entire robot functions as expected. We use JUnit testing, or unit testing in general to make sure that each individual piece of our code works correctly on its own, just like making sure each part of our robot functions properly. 
 
 
 
