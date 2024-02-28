@@ -395,6 +395,26 @@ myRobot2.liftBox();
 
 ## All about Unit Testing 
 
+Test driven development is the practice in which we write our tests before we develop the actual code. In my eyes, it’s like laying the framework of what we expect we want the code to do by writing tests that the code would need to pass. You can write the tests 
+
+Test driven development is key in making sure that our code executes what we want to. It gives us direct information about what part of the code we need to improve on, increasing our productivity. It allows us to hone in on what exact part of the code needs fixing, so it’s more efficient since we won’t waste time figuring out what part of the code is wrong or make us rework the entire code. 
+
+Let’s dive into how to implement Test Driven Development using Junit by using the Robot Class we created before. 
+
+Let’s start with common naming conventions.
+
+The name of the class we are testing is “Robot”. So the name of the test class should be called RobotTest. 
+
+This naming convention can also be applied to methods as well. One of our methods is “liftBox”. So the name of the test that we would create for that method would be “testliftBlock”. 
+
+Now let’s dive into annotations. 
+
+Annotations are what tells the program what we want to do with the code. 
+
+The “@Before" annotation 
+The "@Test" annotation wants that the method should be executed as a test method.
+                         
+
 
 
 
