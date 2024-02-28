@@ -208,7 +208,8 @@ public class Robot {
 }
 ```
 
-To create an object of Robot, we need to do it in the main class. We will specify the class name , followed by the object name, which can be R1, and use the keyword new:
+To create an object of Robot, we need to do it in the main class. We will specify the class name , followed by the object name, which can be Robbie, and use the keyword new:
+
 ```c
 // Main class to test the Robot class
 public class Main {
@@ -218,8 +219,8 @@ Robot myRobot = new Robot("Robbie", "Ultron", 3);
 This is how we create a Robot object. We have to ask the program to make a Robot for us. But just making the robot isn't enough; you also need to give it some the features, like its name, model, and size. So when you write new, it tells Java to make a new robot and it follows instructions from the constructor to make sure the robot has everything it needs.
 
 So to make it clearer, it this example, 
-"Robot" is the class name 
-myRobot is the object name. 
+- "Robot" is the class name 
+- myRobot is the object name. 
 
 The arguments are the name "Robbie", model "Ultron", size "3". That's where the constructor comes in. It's like a set of instructions that tells the machine how to build the robot with all those features. These arguments invoke the constructor to start assigning those parameters to the correct "box". 
 
@@ -245,6 +246,58 @@ The output for this would be:
 Jeremy is walking.
 Jeremy is lifting a box.
 ```
+
+Now let's talk about dynamic and static variables. In the Robot class, the variables name, model, and size are all dynamic variables. Why? Because they can vary from one robot instance to another. For example, one robot "Robbie" has the name "Robbie", the model "Ultron", and the size 3, while another robot "Jeremy" could have different values for these variables. 
+
+Another dynamic variables would be the methods we created. The methods walk() and liftBox() are dynamic functions because they perform actions specific to each robot object. When we call myRobot.walk(), it prints out "Robbie is walking.", indicating that "Robbie" is the one walking. If we had another robot named "Jeremy", calling jeremyRobot.walk() would print "Jeremy is walking.". 
+
+So essentially, dynamic variables mean that they are variables that can constantly be changed. They are variables that are unique to each object. 
+
+Static variables, on the other hand, are shared among all objects of the class and are not unique to each object. They have the same value for all of the objects. 
+
+ In this code, there are no static variables or functions defined. However, let's create one. 
+
+ Let's add a static variable manufacturer to the Robot class. This variable will store the name of the manufacturer of all robot objects.
+```c
+ public class Robot {
+    // Attributes or variables
+    private String name;
+    private String model;
+    private int size;
+    private static String manufacturer = "Stark Industries"; // Static variable for the manufacturer
+
+
+.... rest of the code
+
+
+// Static method to get the manufacturer
+    public static String getManufacturer() {
+        return manufacturer;
+    }
+
+    // Static method to set the manufacturer
+    public static void setManufacturer(String newManufacturer) {
+        manufacturer = newManufacturer;
+    }
+}
+```
+So as you can see, I've added a manufactor variable. So one thing that I remember I was intially confused about when I was learning about this is why do the other methods not have getters or setter, but the static one does? I realized this is because the static variable is an actual variable that is instansized in the class, like name or size, and so it need's to have a getter or setter. The methods to lift a box or walk don't need getters or setters because they are not actual variables instanized in the class.  
+
+Now, manufacturer is a static variable that stores the name of the manufacturer of all robot objects. We can access it using Robot.getManufacturer() and modify it using Robot.setManufacturer(). This variable is shared among all objects of the Robot class. Note how we had to use the word "static" when setting up our methods. 
+
+This is an example of what it would look like if the method was called. 
+
+```c
+public class Main {
+    public static void main(String[] args) {
+        // Create two Robot objects
+        Robot myRobot1 = new Robot("Robbie", "Ultron", 3);
+        Robot myRobot2 = new Robot("Jeremy", "Transformer", 2);
+
+        // Display the initial manufacturer
+        System.out.println("The Manufacturer: " + Robot.getManufacturer());
+```
+        
 
 
 
