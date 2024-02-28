@@ -91,7 +91,7 @@ public void setModel(String model) {
 Now the robot will update what's inside the box accordingly to, for example, what name or size you want it to be. Note the "this." pointer again. It's telling the program to stick the new name value into the name box. Or telling the program to stick the new model value into the model box. It directs where each value should correctly be. 
 
 
-Now the blueprint is ready! This is the code in it's entirety: 
+Now the blueprint is ready! This is the code in it's entirety which we can use for the next part.  
 
 ```c
 // Define the Robot class
@@ -154,16 +154,97 @@ Now let's move on to how to actually create the Robot, the object.
 
 ## Chapter 3:  Getting Deeper with Class Objects 
 
-To create an object of Robot, specify the class name , followed by the object name, which can be R1, and use the keyword new:
+As a refresher, this is our newly made class: 
+
 ```c
-Robot myRobot = new Robot("Robbie", "R2-D2", 3);
+// Define the Robot class
+public class Robot {
+    // Attributes or variables
+    private String name;
+    private String model;
+    private int size;
+
+    // Constructor to initialize the attributes
+    public Robot(String name, String model, int size) {
+        this.name = name;
+        this.model = model;
+        this.size = size;
+    }
+
+    // Method to make the robot walk
+    public void walk() {
+        System.out.println(name + " is walking.");
+    }
+
+    // Method to make the robot lift a box
+    public void liftBox() {
+        System.out.println(name + " is lifting a box.");
+    }
+
+    // Getters and setters for the attributes
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+}
 ```
 
-So "Robot" is the class name 
-myRobot is the object name 
+To create an object of Robot, we need to do it in the main class. We will specify the class name , followed by the object name, which can be R1, and use the keyword new:
+```c
+// Main class to test the Robot class
+public class Main {
+    public static void main(String[] args) {
+Robot myRobot = new Robot("Robbie", "Ultron", 3);
+```
+This is how we create a Robot object. We have to ask the program to make a Robot for us. But just making the robot isn't enough; you also need to give it some the features, like its name, model, and size. So when you write new, it tells Java to make a new robot and it follows instructions from the constructor to make sure the robot has everything it needs.
 
+So to make it clearer, it this example, 
+"Robot" is the class name 
+myRobot is the object name. 
 
+The arguments are the name "Robbie", model "Ultron", size "3". That's where the constructor comes in. It's like a set of instructions that tells the machine how to build the robot with all those features. These arguments invoke the constructor to start assigning those parameters to the correct "box". 
 
+But what if we wanted to change the variables again. Let's say that we hate the name Robbie and want to update the name. We can use Setters! 
+
+```c
+// Update student age
+        myRobot.setName(Jeremy);
+```
+
+So now we've created an object. A Robot that goes by the name of Jeremy, Model Ultron, and Size 3.  
+
+Now how do we make class objects actually do things? That's where methods come in to play. We have to call the methods in the main class for the object to start doing them. 
+
+```c
+myRobot.walk();
+myRobot.liftBox();
+```
+
+The output for this would be: 
+
+```c
+Jeremy is walking.
+Jeremy is lifting a box.
+```
 
 
 
