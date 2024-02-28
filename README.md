@@ -227,11 +227,11 @@ The arguments are the name "Robbie", model "Ultron", size "3". That's where the 
 But what if we wanted to change the variables again. Let's say that we hate the name Robbie and want to update the name. We can use Setters! 
 
 ```c
-// Update student age
+// Update Robot name 
         myRobot.setName(Jeremy);
 ```
 
-So now we've created an object. A Robot that goes by the name of Jeremy, Model Ultron, and Size 3.  
+So now we've updated the robot. A Robot that goes by the name of Jeremy, Model Ultron, and Size 3.  
 
 Now how do we make class objects actually do things? That's where methods come in to play. We have to call the methods in the main class for the object to start doing them. 
 
@@ -308,9 +308,90 @@ The Manufacturer for Robbie is Stark Industries
 The Manufacturer for Jeremy is Stark Industries
 ```
 
-When I approach class design, I start off by thinking of the basics, such as the variables and methods. I then think of the getters and setters that's how these variables are accessed and controlled
+When I approach class design, I think of it like building with lego blocks.  I start off by thinking about what I want to actually create. Once I have that in mind, I start thinking of the different types of pieces that I would need in order to build what I'm thinking of. These pieces are what I like to think as the variables of the class. For example, if I'm going to make a car out of legos, I would need parts like wheel, doors, steering wheel, side mirros, seats, etc. Now I have to think about what I want my object to do, what actions I want it to do. These are what I think of methods as. Methods are what enables the object to be able to interact or move. For the lego car example, I might want it to maybe drive or turn. I also think about the access modifiers, like public, private, etc and making sure that I'm implementing the correct ones for the variables or methods. Overall, when it comes to class design, I try to make it as organized as possible since personally looking at long code can be kind of overwhelming so making it as structured as possible is key to making my understanding clearer. Carefully planning and organizing your code to the proper structure also makes it more efficient and easier to use, which is something else that I like to keep in mind when I start creating a class. 
 
 
+This is an example of efficient class:
+
+```c
+// Define the Robot class
+public class Robot {
+    // Attributes or variables
+    private String name;
+    private String model;
+    private int size;
+    private static String manufacturer = "Stark Industries"; // Static variable for the manufacturer
+    // Constructor to initialize the attributes
+    public Robot(String name, String model, int size) {
+        this.name = name;
+        this.model = model;
+        this.size = size;
+    }
+
+    // Method to make the robot walk
+    public void walk() {
+        System.out.println(name + " is walking.");
+    }
+
+    // Method to make the robot lift a box
+    public void liftBox() {
+        System.out.println(name + " is lifting a box.");
+    }
+
+    // Getters and setters for the attributes
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+// Static method to get the manufacturer
+    public static String getManufacturer() {
+        return manufacturer;
+    }
+
+    // Static method to set the manufacturer
+    public static void setManufacturer(String newManufacturer) {
+        manufacturer = newManufacturer;
+}
+
+
+// Main class for Robot class
+public class Main {
+    public static void main(String[] args) {
+
+ // Create two Robot objects
+    Robot myRobot1 = new Robot("Robbie", "Ultron", 3);
+    Robot myRobot2 = new Robot("Jeremy", "Transformer", 2);
+
+  // Display the manufacturer
+     System.out.println("The Manufacturer for " + myRobot1.getName "is" + Robot.getManufacturer());
+     System.out.println(The Manufacturer for " + myRobot2.getName "is" + Robot.getManufacturer());
+
+myRobot1.walk();
+
+myRobot2.liftBox();
+
+} 
+```
 
 
 
