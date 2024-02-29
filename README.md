@@ -592,7 +592,98 @@ In the driver test, we had to write the code out to test the Robot class by call
 On the other hand, the JUnit test is more like hands free automatic testing. With JUnit, it all kind of layed out for us and it makes it easier because it already has a framework of annotations and assertions that do the work for us. These tests are executed automatically by the JUnit framework and the results are reported back us. So the framework goes ahead and checks to see if the ouput is what we expected, tells us what worked and didn't work, we dont have to verify it ourselves like we had to with the driver test.  
 
 
-### Exception Handling
+## Exception Handling
+
+Exception handling is part of when we try to understand what is the exact nature of the problem. What if the problem is that we have an unexpected condition? Like lets say for our Robot class, I didn't give the robot a name? We would call this an Exception. An exception is basically something that stores information about the problem and what caused it. It basically notifies java to tell us what the problem is. 
+
+Now in the robot scenario, I tried to not give the robot a name. This would be called an illegal argument. There already is an exception class is is specially built for that. It's called the illegal argument exception. Let's look at an example to see how we would write this. 
+```c
+   // Constructor with parameter validation
+    public Robot(String name, String model, int size) {
+        if (name == null || name.isEmpty()) {
+             new IllegalArgumentException("Name cannot be null or empty");
+        }
+        this.name = name;
+        this.model = model;
+        this.size = size;
 
 
+....//rest of the code
 
+
+ public void setName(String name) throws  {
+        if (name == null || name.isEmpty()) {
+             new IllegalArgumentException("Name cannot be null or empty");
+        }
+        this.name = name;
+    }
+    }
+```
+
+
+In this example, I changed the Robot constructor to have a  IllegalArgumentException if the name argument is empty. I added an if statement at the beginning of the constructor to check if the name is valid. 
+
+If the provided name is not valid, we "throw" an IllegalArgumentException with a descriptive error message. The term "throw" basically is basically like "throwing" the problem at Java and saying "There's a problem, you need to fix it". 
+
+```c
+    // Constructor 
+    public Robot(String name, String model, int size) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        this.name = name;
+        this.model = model;
+        this.size = size;
+    }
+
+...//rest of the codee
+
+    public void setName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        this.name = name;
+    }
+
+       
+```
+
+We can also declare an entire method with throws IllegalArgumentException. It's like putting a caution sticker on it and letting the other parts of the program know that this method might run into a problem. 
+
+```c
+    // Constructor 
+    public Robot(String name, String model, int size) throws IllegalArgumentException {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        this.name = name;
+        this.model = model;
+        this.size = size;
+    }
+...//rest of code
+    public void setName(String name) throws IllegalArgumentException {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        this.name = name;
+    }
+
+```
+
+So if we throw the problem at Java, it needs to catch it in order to fix the problem? How does it do that? It does that by using the try-catch method. 
+
+The first step in fixing the problem would be bundling the problem code into a set of curly braces with the key word "try". This is called a try block. 
+
+```c
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Trying to create a robot with no name (illegal argument)
+            Robot myRobot = new Robot("", "Ultron", 3);
+       } 
+```
+
+This try block is saying that "We're calling the method to create an object but there might be a problem with it and it might throw an exception". 
+
+If any part of the code inside the block throws an exception, we then move on to a catch block. 
+       
