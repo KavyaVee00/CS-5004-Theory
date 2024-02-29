@@ -589,7 +589,7 @@ public class RobotTest {
 
 In the driver test, we had to write the code out to test the Robot class by calling the methods and we have to observe the output ourselves to make sure that it's the output we want. 
 
-On the other hand, the JUnit test is more like hands free automatic testing. With JUnit, it all kind of layed out for us and it makes it easier because it already has a framework of annotations and assertions that do the work for us. These tests are executed automatically by the JUnit framework and the results are reported back us. So the framework goes ahead and checks to see if the ouput is what we expected, we dont have to verify it ourselves like we had to with the driver test.  
+On the other hand, the JUnit test is more like hands free automatic testing. With JUnit, it all kind of layed out for us and it makes it easier because it already has a framework of annotations and assertions that do the work for us. These tests are executed automatically by the JUnit framework and the results are reported back us. So the framework goes ahead and checks to see if the ouput is what we expected, tells us what worked and didn't work, we dont have to verify it ourselves like we had to with the driver test.  
 
 
 ### Exception Handling
