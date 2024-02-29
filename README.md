@@ -745,9 +745,144 @@ If no catch block matches the thrown exception type, the control will jump up to
 If an exception occurs inside a catch block, then the exception will be handled. 
 
 
+### Inheritance
+
+Inheritance is a tool we use to be able to reuse code. The convenience of reusing the code is why we opt to do inheritance comapred to anything else. Basically what the word entails. We inherit things from our parents. In that same way, classes can inherit things from their parent classes. It’s like a chain. You can have a parent class (superclass) that have some variables and methods. You can pass that all down to a child class (subclass) that can “inherit” and use all of the variables and methods of the parent class, plus it can have it’s own special features as well. We use se the word “extends" to be able to do so. 
+
+For example let's say we have a parent class for a camera. We want it to have the basic functions of being able to take a picture, zoom in, and zoom out. We can create a subclass of this Car class, let's say it's a GX 750 camera, and this will inherit all the basic fucntions of the parent class - being able to take a picture, zoom, etc. But there's a special feature in this type of camera. It can also record. So it has all the functionalities of the parent class + it's own special features. 
+
+For inhertince, some parent classes can be abstract. This means that they can have abstract methods. These are methods that don't have any specific way of implemetation in the parent class, meaning we can use it however we want to in the subclass. It serves as a kind of like the baseline for the child classes to follow and build upon. Additionally, abstract classes cannot be instantiated. You can’t make an object with it. 
+
+Let's look at an example: 
+
+```c
+// Abstract parent class for Camera
+public abstract class Camera {
+    // Method to take a picture - concrete method
+    public void takePicture() {
+        System.out.println("Taking a picture...");
+    }
+
+    // Method to zoom in - concrete method
+    public void zoomIn() {
+        System.out.println("Zooming in...");
+    }
+
+    // Method to zoom out - concrete method
+    public void zoomOut() {
+        System.out.println("Zooming out...");
+    }
+
+    // Recording - abstract method 
+    public abstract void record();
+}
+
+// Subclass GX750Camera extending the Camera class
+public class GX750Camera extends Camera {
+    // Implementation of the record method specific to GX750Camera
+    @Override
+    public void record() {
+        System.out.println("Recording...");
+    }
+}
+
+// Main class to test the Camera classes
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of GX750Camera
+        GX750Camera gx750 = new GX750Camera();
+
+        // Use the inherited methods from the Camera class
+        gx750.takePicture();
+        gx750.zoomIn();
+        gx750.zoomOut();
+
+        // Use the specific method of GX750Camera
+        gx750.record();
+    }
+}
+
+```
+
+In this example, Camera is an abstract class, but GX750Camera is a concrete class.  since it inherits all methods from Camera and provides concrete implementations for them. The record() method in the Camera class is declared as abstract, indicating that the concrete subclass of Camera must provide its own implementation for the record() method. When a subclass, such as GX750Camera, extends Camera, it must override the record() method and provide its own implementation, as shown here. 
+
+A difference between concrete and abstract classes is that abstract classes can have both concrete and abstrat methods, but concrete classes can only have concrete methods and cannot have abstract methods.  Concrete classes are required to provide implementations for all methods, including any abstract methods inherited from their superclass. If a class has even one abstract method, it must be declared as abstract itself.
+
+Abstract methods are meant to be implemented by the child classes, so they are only allowed in abstract classes or interfaces. Once a child clasass extends an abstract class and provides implementations for all abstract methods, it becomes a concrete class.
+
+Also, abstract classes cannot be instantiated. This means you can't create objects of an abstract class directly using the "new" keyword. Concrete classes, on the other hand, you can directly create objects of concrete classes and use them in your code.
 
 
 
 
+
+
+
+### Interfaces 
+
+Interfaces are like blueprints for what a class is supposed to do or follow. It's like what lists out the requirements. For example, let's use our robot example. Interfaces only have abstract methods, which mean they don't have any bodies. 
+
+Java interfaces help us to to model types. A type specificies the behavior without specifcying HOW that type should be implemented. It leaves it to us in how we want to use it. This is different from inheritanc because a parent class - child class relationship is not the same as a supertype - subtype relationship. 
+
+WHen we implement a type in java, wer'e creating a supertype-subtype relationship even if we haven't used inheritance. So to summarize, inheritance is one form of code reuse. We could opt for convenience to create a superclass subclass relationship in order to reuse a package of code without caring whether the subclass that is reusing that code is actually a subtype of the superclass.
+
+Let's say we want to create an interface that will allow us to upgrade our robot. This is how we would write it out: 
+
+```c
+// Upgradable interface
+interface Upgradable {
+    void upgrade();
+}
+```
+
+We would then want to implement that using our Robot class. 
+
+```c
+public class Robot implements Upgradable {
+    // Attributes or variables
+    private String name;
+    private String model;
+    private int size;
+
+   
+    public Robot(String name, String model, int size) {
+        this.name = name;
+        this.model = model;
+        this.size = size;
+    }
+
+    
+    public void walk() {
+        System.out.println(name + " is walking.");
+    }
+
+    
+    public void liftBox() {
+        System.out.println(name + " is lifting a box.");
+    }
+
+    // Method to upgrade the robot
+    public void upgrade() {
+        System.out.println(name + " is being upgraded with new arms.");
+    }
+}
+```
+We can make it our own depending on what we want it to do to the robot. For this one, we want to upgrade it with new arms. Let's say we want to implement it in a class Car. We can also implement Upgradable using class Car, but we can change the method to say "being upgraded with new wheels". 
+
+This is how it'll look like in the main class: 
+
+```c
+public class Main {
+    public static void main(String[] args) {
+        // Create a Robot object
+        Upgradable robot = new Robot("Robbie", "R2-D2", 3);
+
+        // Call methods from the Upgradable interface
+        robot.upgrade();
+    }
+}
+```
+
+Now it'll upgrade the robot. But why do it this way instead of just writing the method directly into the Robot class and not have to implement anything? It's because we can use this interface for any class. For example, let's say we create two other classes, one for a car, one for a bike, 
 
        
