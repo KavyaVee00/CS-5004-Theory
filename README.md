@@ -685,5 +685,66 @@ public class Main {
 
 This try block is saying that "We're calling the method to create an object but there might be a problem with it and it might throw an exception". 
 
-If any part of the code inside the block throws an exception, we then move on to a catch block. 
+If any part of the code inside the block throws an exception, we then move on to a catch block. The catch block catches the exception thrown within the try block. It hones in and specifies the type of exception it can handle (IllegalArgumentException in this case) and provides code to handle the exception. 
+
+```c
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Trying to create a robot with no name (illegal argument)
+            Robot myRobot = new Robot("", "Ultron", 3);
+        }
+        catch (IllegalArgumentException e) {
+            // Handle the exception by setting a default name
+            System.out.println("Error: Name cannot be null or empty");
+            Robot myRobot = new Robot("DefaultName", "Ultron", 3);
+           
+        }
+    }
+}
+```
+
+IllegalArgumentException e specifies the type of exception that this catch block will try to handle. It catches any IllegalArgumentException thrown within the try block.
+
+So the catch block in this example handles the exception by providing an error messags and then setting the empty name with a default name. 
+
+What if the catch blocks dont match the type of the exception thrown? It would be like there was no try catch block implemented in the first place and the exception doesn't get caught at all. It'll keep going up and up each catch block to see one that matches and would be able to handle it. If it isn't able to find one, it'll keep going up the ladder until it reaches the main part of the program. If it still can't find a matching catch block there, the program will stop running and terminate, and you'll see an error message that will try to help figure what went wrong. Which is something that we use the try-catch blocks in the first place to avoid. 
+
+
+So taking a step back overall and looking at the syntax involved in exception handling will look like this:  
+
+```c
+try {
+    // Code that may throw an exception
+} catch (ExceptionType1 e) {
+    // Handle ExceptionType1
+} catch (ExceptionType2 e) {
+    // Handle ExceptionType2
+} 
+```
+
+Throws Statement: 
+```c
+throw new ExceptionType("Error message");
+
+```
+
+Throws Statement with method: 
+```c
+public void method() throws ExceptionType {
+    // Method code that may throw an exception
+}
+```
+
+Flow Control During Exception Handling:
+
+When an exception occurs inside the try block, the control will jump to the corresponding catch block that matches the type of the thrown exception.
+
+If no catch block matches the thrown exception type, the control will jump up to the next higher level of the program.
+
+If an exception occurs inside a catch block, then the exception will be handled. 
+
+
+
+
        
