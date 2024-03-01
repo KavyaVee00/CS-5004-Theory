@@ -712,7 +712,7 @@ public class Main {
 }
 ```
 
-IllegalArgumentException e specifies the type of exception that this catch block will try to handle. It catches any IllegalArgumentException thrown within the try block.
+"IllegalArgumentException e" specifies the type of exception that this catch block will try to handle. It catches any IllegalArgumentException thrown within the try block.
 
 So the catch block in this example handles the exception by providing an error messags and then setting the empty name with a default name. 
 
@@ -794,7 +794,7 @@ public class GX750Camera extends Camera {
     }
 }
 
-// Main class to test the Camera classes
+// Main class 
 public class Main {
     public static void main(String[] args) {
         // Create an instance of GX750Camera
@@ -812,7 +812,7 @@ public class Main {
 
 ```
 
-In this example, Camera is an abstract class, but GX750Camera is a concrete class.  since it inherits all methods from Camera and provides concrete implementations for them. The record() method in the Camera class is declared as abstract, indicating that the concrete subclass of Camera must provide its own implementation for the record() method. When a subclass, such as GX750Camera, extends Camera, it must override the record() method and provide its own implementation, as shown here. 
+In this example, Camera is an abstract class, but GX750Camera is a concrete class. The record() method in the Camera class is declared as abstract, indicating that the concrete subclass of Camera must provide its own implementation for the record() method. When a subclass, such as GX750Camera, extends Camera, it must override the record() method and provide its own implementation, as shown here. 
 
 A difference between concrete and abstract classes is that abstract classes can have both concrete and abstrat methods, but concrete classes can only have concrete methods and cannot have abstract methods.  Concrete classes are required to provide implementations for all methods, including any abstract methods inherited from their superclass. If a class has even one abstract method, it must be declared as abstract itself.
 
@@ -822,17 +822,15 @@ Also, abstract classes cannot be instantiated. This means you can't create objec
 
 
 Superchaining is also a key part of inheritence. when you're building a new class that inherits from another class, super chaining helps you do that in a smooth way.
+Constructor chaining, for example, let's say you're making a new kind of camera, gx470, that's a bit different from a regular camera. But it still has some of the same basic features. When you make your new camera class, you can call the setup stuff from the regular camera class first, using super(), before adding your own unique setup for your new camera.
 
-Constructor Chaining: Let's say you're making a new kind of camera, gx470, that's a bit different from a regular camera. But it still has some of the same basic features. When you make your new camera class, you can call the setup stuff from the regular camera class first, using super(), before adding your own unique setup for your new camera.
+So, super chaining helps you take advantage of what's already built in the parent class while still adding your own flavor to the new class you're creating. It's like building a unique floor level in a building. 
 
-Superclass Methods: If your new camera class wants to use a function that's already defined in the regular camera class, you can do that easily with super. It's like saying, "Hey, regular camera, I want to use your function for taking pictures" before adding your own special stuff.
-
-So, super chaining helps you take advantage of what's already built in the parent class while still adding your own flavor to the new class you're creating. It's like building on top of a solid foundation.
-
+So overall:
 
 Inheritance is like passing down traits from parents to children.
 
-Polymorphism (dynamic dispatching) s like having multiple shapes that can fit into the same hole. In programming, it means that objects of different classes can be treated as objects of the same parent class. 
+Polymorphism (dynamic dispatching) is like having multiple shapes that can fit into the same hole. In programming, it means that objects of different classes can be treated as objects of the same parent class. 
 
 So, how do they relate?
 
@@ -922,7 +920,7 @@ public class Main {
 ```
 We have a parent class called Camera which contains common methods like taking a picture, zooming in, and zooming out.
 
-There are two child classes: GX750Camera and CanonShot, each representing a specific type of camera.
+There are two child classes: GX750Camera and CanonShot - each representing a specific type of camera.
 
 Both child classes  specify how each camera records, and also specify the special feature
 
@@ -936,7 +934,7 @@ We call methods like takePicture, zoomIn, zoomOut, record, and specialFeature on
 Despite treating them as Camera objects, the specific methods in the child classes are executed and this is all thanks to polymorphism. This means that each camera behaves according to its specific type even though we interact with them through the Camera interface.
 
 
-Both composition and inheritance are mechanisms for building relationships between classes, but they serve different purposes. To summarize, inheritance is more all about code reuse and specialization through an "is-a" relationship. So how like a "circle is a shape" sort of thing. Composition on the other hand is more has-a" relationship. Like how a "car has a wheel". It's more about like what it has instead of what it is. It's more about being flexible. 
+Both composition and inheritance are mechanisms for building relationships between classes, but they serve different purposes. To summarize, inheritance is more all about code reuse and specialization through an "is a" relationship. So how like a "circle is a shape" sort of thing. Composition on the other hand is more has a" relationship. Like how a "car has a wheel". It's more about like what it has instead of what it is. It's more about being flexible. 
 
 
 But there are problems that come with inheritance. 
@@ -1024,11 +1022,11 @@ public class Main {
 
 ```
 SO in this example, we have a Vehicle class representing different types of vehicles and we have a Car subclass to represent cars and a Boat class to represet boats. The issue is that
-Boat inherits the start() method from Vehicle andit doesn't make sense for boats to have a start() method because they don't operate like cars with a start button. This creates confusion and violates the principle of logical inheritance.
+Boat inherits the start() method from Vehicle and it doesn't make sense for boats to have a start() method because they don't operate like cars with a start button. This creates confusion and violates the principle of logical inheritance.
 
 To fix this, we want to make sure that classes are less dependent on each other's details. 
 
-Instead of directly depending on another class, we can define interfaces that outline what functionalities a class should have. Then, classes can interact through these interfaces rather than directly. This way, other classes don't need to know about the inner details and won't be affected if those details change.
+Instead of directly depending on another class, we can define interfaces that outline what behaviors a class should have. Then the classes can interact through these interfaces rather than directly. This way, other classes don't need to know about the inner details and won't be affected if those details change.
 
 Composition is another approach to address tight coupling. Instead of inheriting behavior from parent classes, a class can contain instances of other classes as members. This way, the class doesn't rely on the implementation details of other classes but rather on their interfaces or functionalities. With composition, we can easily change or replace the behavior of a class by changing the objects it contains without any harm. 
 
@@ -1199,6 +1197,7 @@ Interfaces are used when you want to lay down a requirement for classes that sha
 Interfaces are also primarily used to enable polymorphism. Polymorphism is the ability of different objects to be treated as objects of a common type. Because different objects can be treated as instances of the same interface type, you can write code that works with objects of multiple classes without needing to know their specific types.
 
 
+```c
 Here's an example of Polymorphism: interface Camera {
     void capturePhoto();
 }
@@ -1233,7 +1232,7 @@ public class Main {
         pointAndShootCamera.capturePhoto(); // Output: Capturing photo with Point-and-Shoot camera
     }
 }
-
+```
 We have different types of cameras, like Cannon, Mirrorless, and Point-and-Shoot. Even though these cameras work differently, they all share a common function: capturing a photo.
 We create an interface called Camera that has a method capturePhoto(). This means any camera that wants to be part of our system must know how to capture a photo. Each type of camera (like Canon, Mirrorless, etc.) implements the Camera interface and provides its own way of capturing a photo. For example, a Canon might have a different process for capturing a photo compared to a Point-and-Shoot camera. In our code, we treat all cameras as instances of the Camera interface. This means we can call the capturePhoto() method on any camera object and the correct implementation for that specific type of camera will be use which we can do thanks to polymorphism.
 
