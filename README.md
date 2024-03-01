@@ -1174,12 +1174,62 @@ public class Main {
         // Create a Robot object
         Upgradable robot = new Robot("Robbie", "R2-D2", 3);
 
-        // Call methods from the Upgradable interface
+        //Methods from the Upgradable interface
         robot.upgrade();
     }
 }
 ```
 
-Now it'll upgrade the robot. But why do it this way instead of just writing the method directly into the Robot class and not have to implement anything? It's because we can use this interface for any class. For example, let's say we create two other classes, one for a car, one for a bike, 
+Now it'll upgrade the robot. We can change the method accordingly to whatever class we use to implement it. For example, if we implemented the method in a car class, we could alter it and say that it's being upgraded with new wheels. It's all up to us. 
 
+
+Abstract class is like a half-built blueprint for classes to follow and it gives room for both completed and incomplete parts. Interface is like a strict set of rules that classes promise to obey while specifying only what methods should exist without providing the code for them. You can't directly use it to create objects but you can make new classes based on it. However, a class can only inherit or extend from one asbstract class. 
+
+So essentially, abstract classes are used when you have a parent class that shares common behavior among several child classe and you expec them to have many common methods. 
+Interfaces are used when you want to lay down a requirement for classes that share no commonality but need to provide a certain set of methods. 
+
+Interfaces are also primarily used to enable polymorphism. Polymorphism is the ability of different objects to be treated as objects of a common type. Because different objects can be treated as instances of the same interface type, you can write code that works with objects of multiple classes without needing to know their specific types.
+
+
+Here's an example of Polymorphism: interface Camera {
+    void capturePhoto();
+}
+
+class Canon implements Camera {
+    public void capturePhoto() {
+        System.out.println("Capturing photo with Canon camera");
        
+    }
+}
+
+class MirrorlessCamera implements Camera {
+    public void capturePhoto() {
+        System.out.println("Capturing photo with Mirrorless camera");
+    }
+}
+
+class PointAndShootCamera implements Camera {
+    public void capturePhoto() {
+        System.out.println("Capturing photo with Point-and-Shoot camera");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Camera dslrCamera = new DSLRCamera();
+        Camera mirrorlessCamera = new MirrorlessCamera();
+        Camera pointAndShootCamera = new PointAndShootCamera();
+
+        dslrCamera.capturePhoto(); // Output: Capturing photo with Canon camera
+        mirrorlessCamera.capturePhoto(); // Output: Capturing photo with Mirrorless camera
+        pointAndShootCamera.capturePhoto(); // Output: Capturing photo with Point-and-Shoot camera
+    }
+}
+
+We have different types of cameras, like Cannon, Mirrorless, and Point-and-Shoot. Even though these cameras work differently, they all share a common function: capturing a photo.
+We create an interface called Camera that has a method capturePhoto(). This means any camera that wants to be part of our system must know how to capture a photo. Each type of camera (like Canon, Mirrorless, etc.) implements the Camera interface and provides its own way of capturing a photo. For example, a Canon might have a different process for capturing a photo compared to a Point-and-Shoot camera. In our code, we treat all cameras as instances of the Camera interface. This means we can call the capturePhoto() method on any camera object and the correct implementation for that specific type of camera will be use which we can do thanks to polymorphism.
+
+You would typically use an interface when you want to make a rule sheet for classes that need to share common behavior but don't have a relationship. On the other hand, you would use an abstract class when you want to provide a common implementation for closely related classes that share a close relationship.
+
+
+You don't need to use interfaces in all scenarios though. If you only need one way of doing something, using an interface might be overcomplicating things. Stick to simpler solutions by maybe making concrete classes. Also, if a behavior is only used inside one class and doesn't need to be shared, you don't need an interface. Keep it private to that class.
