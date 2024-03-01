@@ -3,7 +3,7 @@
 
 ## Chapter 1: Getting Started with Java 
 
-The reason why Java was chosen as the programming language for this class is because it’s an incredibly versatile programming language, easier to maintain and it’s reusable. It allows for a more separated program which is well structured and more organized. This can help when you have to deal with more complex code which is often in object oriented programming. Java is great for object-oriented design because it's built with object-oriented principles in mind. 
+The reason why Java was chosen as the programming language for this class is because it’s an incredibly versatile programming language and promotes a lot of code reuse. It aims for a more separated program which is well structured and more organized. This can help when you have to deal with more complex code which is often in object oriented programming. Java is great for object-oriented design because it's built with object-oriented principles in mind. 
 
 It provides a good base for things like classes, inheritence, polmorphism, etc. With Java, you can reuse code by creating classes that define how objects should behave. This saves time and effort because you can use the same code in different parts of your program. Java's class-based structure helps keep your code organized and allows you to change and update it without affecting other parts of your program. And because of this, Java is well-suited for big projects because it make it easier to manage and maintain complex code. 
 
