@@ -1240,3 +1240,14 @@ You would typically use an interface when you want to make a rule sheet for clas
 
 
 You don't need to use interfaces in all scenarios though. If you only need one way of doing something, using an interface might be overcomplicating things. Stick to simpler solutions by maybe making concrete classes. Also, if a behavior is only used inside one class and doesn't need to be shared, you don't need an interface. Keep it private to that class.
+
+
+
+### Sources 
+
+https://books.trinket.io/thinkjava2/chapter11.html
+https://www.tutorialspoint.com/java/java_object_classes.html
+https://www.w3schools.com/java/java_polymorphism.asp 
+
+
+
