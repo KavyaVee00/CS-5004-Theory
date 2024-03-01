@@ -31,7 +31,7 @@ As the engineer, we would probably want the Robot to have some attributes or var
 
 ```c
 public class Robot {
-// Attributes or variables
+// variables
     private String name;
     private String model;
     private int size;
@@ -44,7 +44,7 @@ For this example, the attributes could be like its size (number), or model (stri
 Now in order for the robot to actually recieve a size, model, or name, we would have to create a constructor. A constructor is what actually brings the robot to life by assigning it a name, model, size. But how exactly does it do that? This is where the "this" pointer comes in to play. 
 
 ```c
-// Constructor to initialize the attributes
+// Constructor 
     public Robot(String name, String model, int size) {
         this.name = name;
         this.model = model;
@@ -102,14 +102,14 @@ Now the robot will update what's inside the box accordingly to, for example, wha
 Now the blueprint is ready! This is the code in it's entirety which we can use for the next part.  
 
 ```c
-// Define the Robot class
+//  Robot class
 public class Robot {
     // Attributes or variables
     private String name;
     private String model;
     private int size;
 
-    // Constructor to initialize the attributes
+    // Constructor 
     public Robot(String name, String model, int size) {
         this.name = name;
         this.model = model;
@@ -126,7 +126,7 @@ public class Robot {
         System.out.println(name + " is lifting a box.");
     }
 
-    // Getters and setters for the attributes
+    // Getters and setters 
     public String getName() {
         return name;
     }
@@ -165,14 +165,14 @@ Now let's move on to how to actually create the Robot, the object.
 As a refresher, this is our newly made class: 
 
 ```c
-// Define the Robot class
+// Robot class
 public class Robot {
     // Attributes or variables
     private String name;
     private String model;
     private int size;
 
-    // Constructor to initialize the attributes
+    // Constructor 
     public Robot(String name, String model, int size) {
         this.name = name;
         this.model = model;
@@ -189,7 +189,7 @@ public class Robot {
         System.out.println(name + " is lifting a box.");
     }
 
-    // Getters and setters for the attributes
+    // Getters and setters 
     public String getName() {
         return name;
     }
@@ -278,12 +278,12 @@ Static variables, on the other hand, are shared among all objects of the class a
 .... rest of the code
 
 
-// Static method to get the manufacturer
+// method to get the manufacturer
     public static String getManufacturer() {
         return manufacturer;
     }
 
-    // Static method to set the manufacturer
+    // method to set the manufacturer
     public static void setManufacturer(String newManufacturer) {
         manufacturer = newManufacturer;
     }
@@ -322,13 +322,13 @@ When I approach class design, I think of it like building with lego blocks.  I s
 This is an example of efficient class:
 
 ```c
-// T Robot class
+// Robot class
 public class Robot {
     // Attributes or variables
     private String name;
     private String model;
     private int size;
-    private static String manufacturer = "Stark Industries"; // Static variable for the manufacturer
+    private static String manufacturer = "Stark Industries"; // variable for the manufacturer
     // Constructor 
     public Robot(String name, String model, int size) {
         this.name = name;
@@ -346,7 +346,7 @@ public class Robot {
         System.out.println(name + " is lifting a box.");
     }
 
-    // Getters and setters for the attributes
+    // Getters and setters 
     public String getName() {
         return name;
     }
@@ -371,12 +371,12 @@ public class Robot {
         this.size = size;
     }
 
-// Static method to get the manufacturer
+//  method to get the manufacturer
     public static String getManufacturer() {
         return manufacturer;
     }
 
-    // Static method to set the manufacturer
+    //  method to set the manufacturer
     public static void setManufacturer(String newManufacturer) {
         manufacturer = newManufacturer;
 }
@@ -606,7 +606,7 @@ Exception handling is part of when we try to understand what is the exact nature
 
 Now in the robot scenario, I tried to not give the robot a name. This would be called an illegal argument. There already is an exception class is is specially built for that. It's called the illegal argument exception. Let's look at an example to see how we would write this. 
 ```c
-   // Constructor with parameter validation
+   // Constructor 
     public Robot(String name, String model, int size) {
         if (name == null || name.isEmpty()) {
              new IllegalArgumentException("Name cannot be null or empty");
@@ -866,7 +866,7 @@ public abstract class Camera {
 
 // child class GX750Camera extending the Camera class
 public class GX750Camera extends Camera {
-    // Implementation of the record method specific to GX750Camera - its only recording one second 
+    // the record method specific to GX750Camera - its only recording one second 
     @Override
     public void record() {
         System.out.println("Recording for one second...");
@@ -881,7 +881,7 @@ public class GX750Camera extends Camera {
 
 // Subclass CanonShot extending the Camera class
 public class CanonShot extends Camera {
-    // Implementation of the record method specific to CanonShot
+    // the record method specific to CanonShot
     @Override
     public void record() {
         System.out.println("Recording for two seconds...");
@@ -1105,7 +1105,7 @@ public class Boat extends Vehicle {
     }
 }
 
-// Main class to test the composition
+// Main class 
 public class Main {
     public static void main(String[] args) {
         // Creating a Car object
